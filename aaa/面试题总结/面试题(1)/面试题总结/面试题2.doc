@@ -1,0 +1,267 @@
+试卷上的题目：
+1.判断字符串是否是这样组成的，第一个必须是字母，后面可以是字母、数字、下划线，总长度为5-20
+2.截取字符串abcdefg的efg
+3.让一个input的背景颜色变成红色
+4。给一个页面，写html css
+5。div的高宽等于浏览器可见区域的高宽，浏览器滚动，div始终覆盖浏览器的整个可见区域
+6。判断一个字符串中出现次数最多的字符，统计这个次数
+7。IE与FF脚本兼容性问题
+
+又重新问的是1，4，6，7，这次问出题者的意图，并且让给出7的更多答案，以及IE FF不兼容的原因
+然后看了看简历，没有问简历上的项目，而是让自己随便谈谈
+1对于web客户端技术未来趋势发展谈谈看法
+javascript + ajax=RIA
+Adobe Flash AS 3
+Flex
+Sliveright
+2web开发团队人员应该如何分工协作
+布局 CSS 脚本
+比如脚本人员长期的积累可能铸造类型YUI这样的产品级脚本库（亮点）
+3web开发曾经的团队有没有别人遇到问题，什么问题，向你请教
+4如果要实习，什么时候可以
+5自己在开发的过程中遇到什么问题，谈谈看法
+6web开发脚本开发环境用什么、调试用什么
+试过aptana，现在就用editplus
+调试肯定用firebug，ie下看页面DOM用IEInspector
+7如果有个新技术，现在需要掌握，你会怎么做
+新技术的发现我一般是通过RSS工具，比如我用GoogleReader
+每天有半个小时左右在看最新的资讯、技术走向
+发现新技术，首先有个大概了解，如果有深入的必要
+我一般会看他的官网，比如jquery，我会搜索到www.jquery.com，然后看Docs、samples
+如果要用到项目中，有困难的问题，我会svn得到最新的这个技术的源码，深入跟踪进去，看实现原理
+一般现在涌现的技术都是opensource 
+
+提问时间
+1百度web开发脚本是否有做类似YUI库的打算
+2百度web开发工程师打算招多少人
+
+百度电话二面回忆 web开发部--web开发工程师
+
+下午3点一刻北京那边的电话，说4点电面
+结果我等到4点50，气愤
+首先是自我介绍
+然后谈谈做的web项目
+我把youqubar拿出来说了，当然没说是创业项目
+然后开始问技术问题
+
+前端开发的优化问题
+答:
+产品发布时，js的压缩，即函数名替换、整个文件压缩成一行
+css开发的时候注释写清楚，先有个base.css，然后根据不同页面需要再加css，发布的时候将css中的一个定义写成一行，目的是压缩文件大小
+最终发布的时候甚至可以将css，js分别压缩成一个文件，甚至css、js通过技巧压缩到一个里边（亮点）
+这样的目的是，减少用户访问web产品的http连接数
+
+web前端产品的开发流程
+答:首先根据产品的定位、用户群，确定配色，然后纸上设计整体布局，然后png或者psd出效果图，切出需要的小图片，然后手写代码div+css构造出页面，然后根据功能写脚本
+参考126邮箱首页，将所有小图片放到一个图片中，通过css的background-position实现页面，还是为了优化，减少http连接数
+
+规避javascript多人开发函数重名问题
+答:首先是通过命名规范，比如根据不同的开发人员实现的功能，在函数名加前缀，虽然函数名看起来复杂，发布的时候还是可以替换，从而优化。
+还有一种办法是，每个开发人员都把自己的函数封装到类中，然后调用的时候即使函数名相同，但是因为是要类.函数名来调用，所以也减少了重复的可能性。
+
+javascript面向对象中继承实现
+答：我是用prototype.js extend.js扩展
+然后子类中parent.initialize()...
+答的不好
+正确答案：
+
+// 1. 构造器
+function Animal() {};
+function Mammal() {};
+function Canine() {};
+function Dog() {};
+// 2. 原型链表
+Mammal.prototype = new Animal();
+Canine.prototype = new Mammal();
+Dog.prototype = new Canine();
+prototype.js实现的基本原理
+答：
+将功能封装
+比如Ajax.Request，还是有判断浏览器的代码；Position这样的实现页面元素位置的计算
+
+prototye太大，如果一个页面功能不需要这样的，自己实现，怎么做
+答：首先页面、css、脚本分离之后，脚本中将整个模块功能写成一个类var Do={}
+其中初始化函数init:function(){}，然后最后做Do.init()
+其中init会对页面上form中需要交互的元素绑定事件，比如$('input1').onclick=function(){}
+
+IE、FF下面脚本的区别
+答：
+1.IE有outerHTML，FF没有
+2.页面元素id，IE可以直接取，FF必须document.getElementById()
+3.Ajax里边FF是new XMLHttpRequest，而IE是
+try new ActiveXObject('Msxml2.XMLHTTP') try new ActiveXObject('Microsoft.XMLHTTP')
+
+FF下面实现outerHTML
+答：.parenet.firstChild .parent.innerHTML
+这个没答好
+正确答案：原理是，get：取到这个标签的tagname，然后属性循环构造成这个标签的属性
+set：把字符串用insertBefore插入到这个元素前面，然后removeChild这个元素
+
+<head>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+if(typeof(HTMLElement)!="undefined" && !window.opera)
+{
+  HTMLElement.prototype.__defineGetter__("outerHTML",function()
+  {
+     var a=this.attributes, str="<"+this.tagName, i=0;
+for(;i<a.length;i++)
+     if(a[i].specified)
+str+=" "+a[i].name+'="'+a[i].value+'"';
+     if(!this.canHaveChildren)
+return str+" />";
+     return str+">"+this.innerHTML+"</"+this.tagName+">";
+  });
+  HTMLElement.prototype.__defineSetter__("outerHTML",function(s)
+  {
+    var d = document.createElement("DIV"); d.innerHTML = s;
+    for(var i=0; i<d.childNodes.length; i++)
+        this.parentNode.insertBefore(d.childNodes[i], this);
+    this.parentNode.removeChild(this);
+  });
+  HTMLElement.prototype.__defineGetter__("canHaveChildren",function()
+  {
+    return !/^(area|base|basefont|col|frame|hr|img|br|input|isindex|link|meta|param)$/.test(this.tagName.toLowerCase());
+  });
+}
+//-->
+</SCRIPT>
+IE、FF下面CSS的解释区别
+答：
+1.png透明背景，FF下面没有问题，IE需要用滤镜通道
+2.z-index在IE、FF下面的解释问题，
+
+IE会认为第一个z-index=0
+3.长字符串，word-wrap:break-all可以解决IE，但是FF需要overflow:hidden才行
+冯舒娅补充：
+1、有些标签在ff中不能用，比如button
+2、滤镜
+3、鼠标cursor:hand cursor:pointer
+4、div的高度自适应
+5、对box模型解析不一样
+6、ul、ol的padding和margin
+
+IE都能识别*，标准浏览器（如FF）不能识别*；
+IE6能识别*，但不能识别 !important；
+IE7能识别*，也能识别 !important；
+FF不能识别*，但能识别 !important；
+例如style="*width:10px;!important width:20px;"
+这样在IE6下宽度为10px,在IE7下宽度时20px
+
+web前端技术的展望
+答：javascript ajax；flash AS；Flex；Sliveright
+附上网上的百度web开发工程师笔试问题集
+1编写一个方法 求一个字符串的字节长度
+
+<script language="javascript" type="text/javascript">
+new function(s)
+{
+    if(!arguments.length||!s) return null;
+    if(""==s) return 0;
+    var l=0;
+    for(var i=0;i<s.length;i++)
+    {
+        if(s.charCodeAt(i)>255) l+=2;
+        else l++;
+    }
+    alert(l);
+}("hello你好，我好,大家好！world!");
+</script>
+2编写一个方法 去掉一个数组的重复元素
+
+<script language="javascript" type="text/javascript">
+Array.prototype.strip=function()
+{
+    if(this.length<2) return [this[0]]||[];
+    var arr=[];
+    for(var i=0;i<this.length;i++)
+    {
+        arr.push(this.splice(i--,1));
+        for(var j=0;j<this.length;j++)
+        {
+            if(this[j]==arr[arr.length-1])
+            {
+                this.splice(j--,1);
+            }
+        }
+    }
+    return arr;
+}
+var arr=["abc",85,"abc",85,8,8,1,2,5,4,7,8];
+alert(arr.strip());
+</script>
+3说出3条以上ff和ie的脚本兼容问题
+IE 有children，FF没有；IE有parentElement，FF没有；IE有innerText,outerText,outerHTML，FF 没有；FF有HTMLElement,HTMLDivElement,XMLDocument,DocumentFragment,Node, Event,Element等等，IE没有；IE有数据岛，FF没有；IE跟FF创建HttpRequest实例的方法不一样。。等等。。
+4用脚本写去除字符串的前后空格
+
+String.prototype.trim   =   function(mode)
+{//前后去空格 
+          if     (mode=='left')   {
+                  return   ((this.charAt(0)   ==   " "   &&   this.length   >   0)   ?   this.slice(1).trim('left')   :   this);
+            }   else
+            if   (mode   ==   'right')   {
+                  return   ((this.charAt(this.length   -   1)   ==   " "   &&   this.length   >   0)   ?   this.slice(0,   this.length   -   1).trim('right')   :   this);
+            }   else   {
+                  return   this.trim('left').trim('right');
+            }
+  };
+5算出字符串中出现次数最多的字符是什么，出现了多少次
+
+<script type="text/javascript">
+//<![CDATA[
+
+var str ="adadfdfseffserfefsefseeffffftsdg"; //命名一个变量放置给出的字符串
+var maxLength = 0; //命名一个变量放置字母出现的最高次数并初始化为0
+var result = ''; //命名一个变量放置结果输入
+
+while( str != '' ){ //循环迭代开始，并判断字符串是否为空
+  oldStr = str; //将原始的字符串变量赋值给新变量
+  getStr = str.substr(0,1); //用字符串的substr的方法得到第一个字符（首字母）
+  eval("str = str.replace(/"+getStr+"/g,'')"); //详细如补充
+
+  if( oldStr.length-str.length > maxLength )
+{ //判断原始的字符串的长度减去替代后字符串长度是否大于之前出现的最大的字符串长度
+ maxLength = oldStr.length-str.length; //两字符串长度相减得到最大的字符串长度
+ result = getStr + "=" + maxLength //返回最大的字符串结果（字母、出现次数）
+ }
+}
+
+alert(result) //弹出结果
+//]]>
+</script>
+6写出3中使用this的典型应用
+在HTML元素事件属性中inline方式使用this关键字：
+
+附上javascript正则表达式的基本知识：
+g: 全局匹配
+i: 忽略大小写
+^ 匹配一个输入或一行的开头，/^a/匹配"an A"，而不匹配"An a"
+$ 匹配一个输入或一行的结尾，/a$/匹配"An a"，而不匹配"an A"
+* 匹配前面元字符0次或多次，/ba*/将匹配b,ba,baa,baaa
++ 匹配前面元字符1次或多次，/ba*/将匹配ba,baa,baaa
+? 匹配前面元字符0次或1次，/ba*/将匹配b,ba
+(x) 匹配x保存x在名为$1...$9的变量中
+x|y 匹配x或y
+{n} 精确匹配n次
+{n,} 匹配n次以上
+{n,m} 匹配n-m次
+[xyz] 字符集(character set)，匹配这个集合中的任一一个字符(或元字符)
+[^xyz] 不匹配这个集合中的任何一个字符
+[\b] 匹配一个退格符
+\b 匹配一个单词的边界
+\B 匹配一个单词的非边界
+\cX 这儿，X是一个控制符，/\cM/匹配Ctrl-M
+\d 匹配一个字数字符，/\d/ = /[0-9]/
+\D 匹配一个非字数字符，/\D/ = /[^0-9]/
+\n 匹配一个换行符
+\r 匹配一个回车符
+\s 匹配一个空白字符，包括\n,\r,\f,\t,\v等
+\S 匹配一个非空白字符，等于/[^\n\f\r\t\v]/
+\t 匹配一个制表符
+\v 匹配一个重直制表符
+\w 匹配一个可以组成单词的字符(alphanumeric，这是我的意译，含数字)，包括下划线，如[\w]匹配"$5.98"中的5，等于[a-zA-Z0-9]
+\W 匹配一个不可以组成单词的字符，如[\W]匹配"$5.98"中的$，等于[^a-zA-Z0-9
+举例：验证email
+var myReg = /^[_a-z0-9]+@([_a-z0-9]+\.)+[a-z0-9]{2,3}$/;
+if(myReg.test(strEmail)) return true;
+

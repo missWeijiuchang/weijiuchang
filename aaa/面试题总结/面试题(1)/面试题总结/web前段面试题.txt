@@ -1,0 +1,62 @@
+Web前端开发面试题集及答案(张艳红) 
+一、填空题（40分）
+1、目前常用的WEB标准静态页面语言是__ ______。（4分）html
+2、改变元素的外边距用________，改变元素的内填充用________。（6分）margin  padding
+3、在Table中，TR是________，TD是________。（6分）行列
+4、如果给一行两列的表格（table）定义高度样式，在________标签中定义最合理，最能减少代码的臃肿。（5分）css样式也有说tr
+5、对ul li的样式设成无，应该是用什么属性________。（6分）list-styl-type：none；
+6、在新窗口打开链接的方法是________。（4分）target=_bank
+7、Color:#666666;可缩写为________。（2分）color：#666
+8、合理的页面布局中常听过结构与表现分离，那么结构是________，表现是________。（9分）div css
+
+二、选择题（20分）
+1、在下面的XHTML中，哪个可以正确地标记折行？（5分）
+A：<br /> B：<break/> C：<br>
+
+2、下列哪些是格式良好的XHTML？（5分）
+A：<p>A <b><i>short</b></i> paragraph</p>
+B：<p>A <b><i>short</i></b> paragraph</p>
+C：<p>A <b><i>short</i></b> paragraph
+
+3、在以下的HTML中，哪个是正确引用外部样式表的方法？（5分）
+A：<style src="mystyle.css">
+B：<link rel="stylesheet" type="text/css" href="mystyle.css">
+C：<stylesheet>mystyle.css</stylesheet>
+
+4、在HTML文档中，引用外部样式表的正确位置是？（5分）
+A：文档的末尾 B：文档的顶部
+C：<body>部分D：<head>部分
+
+
+三、问答题（40分）
+1、请写出超链接的顺序或者你在初始样式中的链接方法。（要求默认无下线，鼠标经过有下划线）（10分）
+
+L-V-H-A
+a:link { line-style：none；}
+a:hover { line-style：underlin；}
+
+或者
+
+a:link{text-decoration:none;}
+a:hover{text-decoration:underline;}
+2、当float和margin同时使用时，IE6的双倍边距BUG如何解决？（6分）
+
+display：inline；或者margin-right:-3px;
+3、为什么无法定义1px左右高度的容器？（7分）
+
+好像是有个默认高度，大约是10px这样，参考答案
+
+4、Firefox中标签的居中问题的解决方法？（5分），
+
+*{margin：0px auto；}
+5、请写出XHTML和CSS如何注释？（5分），
+
+<div><!-- 注释内容-->...</div>
+   .class{/* 注释内容*/...}
+6、请以缩写方法写出1px直线（实线）灰色（任意灰色代码值），上面无边框的矩形边框样式。（7分）
+
+.***{border：1px solid #000；border-top：0px；}或者border:1px solid  #ccc;border-top:none;
+
+为什么无法定义1px左右高度的容器？
+IE6有默认行高
+解决方法也很多比如overflow:hidden;zoom:0.08;line-height:1px;
