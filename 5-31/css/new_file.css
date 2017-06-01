@@ -1,0 +1,204 @@
+@import url(reset.css);
+html {
+  font-size: 62.5%; }
+
+html,
+body, .box {
+  width: 100%;
+  height: 100%;
+  background: none; }
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: none; }
+  .box header {
+    width: 100%;
+    height: 4.4rem;
+    background: #393a3f;
+    display: flex;
+    flex-direction: row; }
+    .box header .img_1 {
+      width: 1.6rem;
+      height: 1.6rem;
+      background: none;
+      margin-left: 2rem;
+      margin-top: 1.6rem;
+      vertical-align: middle; }
+    .box header span {
+      font-size: 22px;
+      color: #ffffff;
+      margin-left: 2.8rem;
+      margin-top: 1.2rem; }
+    .box header .img_2 {
+      flex: 1;
+      text-align: right;
+      margin-right: 2.1rem; }
+      .box header .img_2 img {
+        width: 0.5rem;
+        height: 2rem;
+        background: none;
+        margin-left: 2rem;
+        margin-top: 1.4rem;
+        vertical-align: middle; }
+  .box section {
+    width: 100%;
+    height: auto;
+    background: none;
+    flex: 1;
+    overflow: auto; }
+    .box section .seacrh {
+      width: 100%;
+      height: 5.5rem;
+      background: #f5f5f5;
+      padding: 1rem 1rem; }
+      .box section .seacrh input {
+        width: 100%;
+        height: 3.5rem;
+        background: none;
+        font-size: 16px;
+        color: #999999;
+        border-radius: 5px;
+        background: url(../img/4.jpg) no-repeat #ffffff 1rem 0.5rem;
+        text-align: center;
+        outline: none;
+        border: none;
+        color: #989898; }
+    .box section .follow {
+      width: auto;
+      height: 5.5rem;
+      background: none;
+      display: flex;
+      flex-direction: row;
+      line-height: 5.5rem;
+      border-bottom: 1px solid #f2f2f2; }
+      .box section .follow span {
+        font-size: 16px;
+        color: #333333;
+        margin-left: 1rem;
+        font-weight: bold; }
+      .box section .follow a {
+        text-decoration: none;
+        color: #999999;
+        flex: 1;
+        text-align: right;
+        margin-right: 1.1rem; }
+    .box section .information {
+      width: auto;
+      height: 7rem;
+      background: none;
+      display: flex;
+      flex-direction: row;
+      border-bottom: 1px solid #f2f2f2; }
+      .box section .information dl {
+        padding: 2rem 0rem 2rem 1.5rem; }
+        .box section .information dl dt {
+          font-size: 18px;
+          color: #333333;
+          font-weight: bold; }
+        .box section .information dl dd {
+          color: #999999; }
+      .box section .information img {
+        margin: 1.7rem 0rem 1.7rem 1rem;
+        width: 4rem;
+        height: 4rem;
+        background: none; }
+      .box section .information .but {
+        text-align: right;
+        margin-top: 2.3rem;
+        margin-right: 1rem;
+        flex: 1; }
+        .box section .information .but button {
+          width: 6rem;
+          height: 2.6rem;
+          background: none;
+          border: 1px solid #e5e5e5;
+          border-radius: 6px;
+          color: #e5e5e5; }
+    .box section .sid {
+      width: auto;
+      height: 5.5rem;
+      background: none;
+      display: flex;
+      flex-direction: row;
+      line-height: 5.5rem;
+      border-bottom: 1px solid #f2f2f2; }
+      .box section .sid span {
+        font-size: 16px;
+        color: #333333;
+        margin-left: 1rem;
+        font-weight: bold; }
+      .box section .sid a {
+        text-decoration: none;
+        color: #999999;
+        flex: 1;
+        text-align: right;
+        margin-right: 1.1rem; }
+    .box section .fill {
+      width: auto;
+      height: 3.5rem;
+      background: #f3f3f3; }
+      .box section .fill img {
+        vertical-align: middle;
+        margin-left: 1rem; }
+      .box section .fill span {
+        line-height: 3.5rem;
+        color: #666666;
+        font-size: 14px;
+        margin-left: 0.7rem; }
+  .box footer {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    height: 5rem;
+    background: none; }
+    .box footer dl {
+      text-align: center;
+      margin-top: 0.5rem;
+      flex: 1; }
+      .box footer dl dt img {
+        width: auto;
+        height: 2rem;
+        background: red; }
+  .box .details {
+    width: auto;
+    height: 17rem;
+    background: none;
+    border-bottom: 1px solid #e4e4e4; }
+    .box .details .information {
+      border-bottom: none; }
+    .box .details .btu {
+      width: auto;
+      height: 1.6rem;
+      background: none;
+      margin-left: 5rem; }
+      .box .details .btu span {
+        border: 1px solid #b3b3b3;
+        color: #b3b3b3;
+        float: left;
+        margin-left: 0.5rem;
+        border-radius: 3px; }
+    .box .details .textdeary {
+      margin-top: 1.7rem; }
+      .box .details .textdeary p {
+        color: #989898;
+        line-height: 1.5rem; }
+  .box .loader {
+    width: auto;
+    height: 5rem;
+    background: none;
+    border-bottom: 1px solid #e4e4e4;
+    text-align: center;
+    line-height: 5rem; }
+    .box .loader span {
+      color: #323232;
+      font-size: 14px; }
+    .box .loader img {
+      margin-left: 1rem;
+      width: auto;
+      height: 0.5rem;
+      background: none; }
+
+/*# sourceMappingURL=new_file.css.map */

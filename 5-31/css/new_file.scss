@@ -1,0 +1,209 @@
+@import "reset.css";
+@mixin whb($w, $h, $b) {
+    width: $w;
+    height: $h;
+    background: $b;
+}
+@mixin bo($dir:column) {//row
+    display: flex;
+    flex-direction: $dir; 
+}
+html {
+    font-size: 62.5%;
+}
+html,
+body,.box {
+    @include whb(100%,100%,none);
+}
+.box{
+    @include bo;
+    @include whb(100%,100%,none);
+    header{
+      @include whb(100%,4.4rem,#393a3f);
+       @include bo(row);
+        .img_1{
+             @include whb(1.6rem,1.6rem,none);
+             margin-left: 2rem;
+             margin-top: 1.6rem;
+             vertical-align: middle;
+             
+        }
+         span{
+             font-size: 22px;
+             color: #ffffff;
+             margin-left: 2.8rem;
+             margin-top: 1.2rem;
+         }
+         .img_2{
+                flex: 1;
+               text-align: right;
+               margin-right: 2.1rem;
+             img{
+         
+            @include whb(0.5rem,2rem,none);
+            margin-left: 2rem;
+            margin-top: 1.4rem;
+            vertical-align: middle;
+               }
+         
+        }
+    }
+   section{
+          @include whb(100%,auto,none);
+          flex:1;
+           overflow: auto;
+          .seacrh{
+               @include whb(100%,5.5rem,#f5f5f5);
+                padding: 1rem 1rem;
+               input{
+               @include whb(100%,3.5rem,none);
+               font-size: 16px;
+               color:#999999;
+               border-radius: 5px;
+               background: url(../img/4.jpg) no-repeat #ffffff 1rem 0.5rem ;
+               text-align: center;
+               outline: none;
+               border:none;
+               color: #989898;
+           }
+          }
+         .follow{
+              @include whb(auto,5.5rem,none);
+              @include bo(row);
+              line-height: 5.5rem;
+              border-bottom: 1px solid #f2f2f2;
+              span{
+                  font-size: 16px;
+                  color: #333333;
+                  margin-left: 1rem;
+                  font-weight: bold;
+              } 
+              a{
+                  text-decoration: none;
+                  color:#999999 ;
+                  flex: 1;
+                  text-align: right;
+                  margin-right: 1.1rem;
+              }
+         } 
+         .information{
+             @include whb(auto,7rem,none);
+             @include bo(row);
+             border-bottom: 1px solid #f2f2f2;
+            dl{
+                 padding: 2rem 0rem 2rem 1.5rem;
+                 dt{
+                     font-size: 18px;
+                     color: #333333;
+                     font-weight: bold;
+                 }
+                 dd{
+                    color: #999999; 
+                 }
+               }
+              img{
+                     margin: 1.7rem 0rem 1.7rem 1rem;
+                     @include whb(4rem,4rem,none);
+                }
+                .but{
+                  text-align: right;
+                  margin-top: 2.3rem;
+                  margin-right: 1rem;
+                 flex: 1;
+            button{
+                 @include whb(6rem,2.6rem,none);
+                 border: 1px solid #e5e5e5;
+                 border-radius: 6px;
+                 color: #e5e5e5;
+              }  
+             }
+            
+           }
+          .sid{
+              @include whb(auto,5.5rem,none);
+               @include bo(row);
+              line-height: 5.5rem;
+              border-bottom: 1px solid #f2f2f2;
+                  span{
+                  font-size: 16px;
+                  color: #333333;
+                  margin-left: 1rem;
+                  font-weight: bold;
+              } 
+              a{
+                  text-decoration: none;
+                  color:#999999 ;
+                  flex: 1;
+                  text-align: right;
+                  margin-right: 1.1rem;
+              }
+             } 
+             .fill{
+                  @include whb(auto,3.5rem,#f3f3f3);
+                  img{
+                      vertical-align: middle;
+                      margin-left: 1rem;
+                  }
+                  span{
+                      line-height: 3.5rem; 
+                      color: #666666;
+                      font-size: 14px;
+                      margin-left: 0.7rem;
+                  }
+             } 
+    }
+    footer{
+         @include bo(row);
+         @include whb(auto,5rem,none);
+         dl{
+             text-align: center;
+             margin-top: 0.5rem;
+             flex: 1;
+             dt{
+                 img{
+                    @include whb(auto,2rem,red); 
+                 }
+             }
+         }
+    }
+    .details{
+        @include whb(auto,17rem,none);
+        border-bottom: 1px solid #e4e4e4;
+        .information{
+            border-bottom: none;
+        }
+         .btu{
+             @include whb(auto,1.6rem,none);
+            margin-left: 5rem;
+             span{
+                 border: 1px solid #b3b3b3;
+                 color: #b3b3b3;
+                 float: left;
+                 margin-left: 0.5rem;
+                 border-radius: 3px;
+             }
+         }
+         .textdeary{
+             margin-top: 1.7rem;
+             p{
+                 color:#989898;
+                 line-height: 1.5rem;
+                
+             }
+         }
+    }
+    .loader{
+         @include whb(auto,5rem,none);
+         border-bottom: 1px solid #e4e4e4;
+         text-align: center;
+         line-height: 5rem;
+         span{
+             color: #323232;
+             font-size: 14px;
+         }
+         img{
+             margin-left: 1rem;
+             @include whb(auto,0.5rem,none);
+         }
+    }
+   }
